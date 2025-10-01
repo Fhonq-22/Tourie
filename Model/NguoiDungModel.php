@@ -66,19 +66,18 @@ class NguoiDungModel {
         $stmt->close();
     }
 
-    // lấy người dùng theo email (dùng cho đăng nhập)
-    public function layTheoEmail($email) {
-        $stmt = $this->db->conn->prepare("SELECT * FROM NguoiDung WHERE Email=? LIMIT 1");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $res = $stmt->get_result()->fetch_assoc();
-        $stmt->close();
-        return $res ?: null;
-    }
-
     // kiểm tra đăng nhập
-    public function dangNhap($email, $matkhau) {
-        $nguoiDung = $this->layTheoEmail($email);
+    public function dangNhap($value, $matkhau, $type = 'email') {
+        if ($type === 'sdt') $col = 'SDT';
+        else if ($type === 'mand') $col = 'MaND';
+        else $col = 'Email';
+
+        $stmt = $this->db->conn->prepare("SELECT * FROM NguoiDung WHERE $col = ?");
+        $stmt->bind_param("s", $value);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $nguoiDung = $result->fetch_assoc();
+
         if ($nguoiDung && password_verify($matkhau, $nguoiDung['MatKhau'])) {
             return $nguoiDung; // đăng nhập thành công
         }
