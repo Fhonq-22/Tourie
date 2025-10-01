@@ -1,0 +1,36 @@
+:root {
+  --color-primary: #0093e9;   /* xanh biển */
+  --color-secondary: #00bfa6; /* xanh ngọc */
+  --color-accent: #f6d365;    /* vàng cát */
+  --color-warm: #fda085;      /* cam hoàng hôn */
+  --color-bg: #fdfdfd;
+  --color-text: #333;
+
+  --gradient-main: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  --gradient-alt: linear-gradient(135deg, var(--color-accent), var(--color-warm));
+
+  --radius: 8px;
+  --shadow: 0 3px 8px rgba(0,0,0,0.1);
+  --font: "Segoe UI", Roboto, sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--color-primary);
+}
