@@ -107,6 +107,6 @@
     $result = $conn->query("SELECT * FROM $tblname ORDER BY MaND DESC");
     $nguoiDungList = [];
     while ($row = $result->fetch_assoc()) $nguoiDungList[] = $row;
-    include "../View/NguoiDungView.php";
+    include __DIR__ . '/../View/NguoiDungView.php';
     $conn->close();
 ?>

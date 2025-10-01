@@ -1,17 +1,31 @@
 :root {
-  --color-primary: #0093e9;   /* xanh biển */
-  --color-secondary: #00bfa6; /* xanh ngọc */
-  --color-accent: #f6d365;    /* vàng cát */
-  --color-warm: #fda085;      /* cam hoàng hôn */
-  --color-bg: #fdfdfd;
+  /* màu chính */
+  --color-primary: #0093e9;     /* xanh biển */
+  --color-secondary: #00bfa6;   /* xanh ngọc */
+  --color-accent: #f6d365;      /* vàng cát */
+  --color-warm: #fda085;        /* cam hoàng hôn */
+  --color-danger: #e63946;      /* đỏ tươi */
+  --color-bg: #fdfdfd;          
   --color-text: #333;
+  --color-white: #fffdf7;       /* màu nền popup */
+  --color-border: #d0d0d0;      /* viền input */
+  --color-input-focus: #6bc5d2; /* viền input khi focus */
+  --color-table-even: #f9f9f9;
+  --color-table-hover: #f0fbff;
+  --color-close-btn: #666;
+  --color-th-text: #fff;
+  --color-th-bg: linear-gradient(135deg, #6bc5d2, #57a7f2);
+  --color-btn-action-bg: linear-gradient(135deg, #6bc5d2, #57a7f2);
+  --color-link-action-bg: linear-gradient(135deg, var(--color-warm), var(--color-danger));
 
+  /* radius, shadow, font */
+  --radius: 8px;
+  --shadow: 0 8px 20px rgba(0,0,0,0.2);
+  --font: "Segoe UI", Roboto, sans-serif;
+
+  /* gradient tổng quát */
   --gradient-main: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   --gradient-alt: linear-gradient(135deg, var(--color-accent), var(--color-warm));
-
-  --radius: 8px;
-  --shadow: 0 3px 8px rgba(0,0,0,0.1);
-  --font: "Segoe UI", Roboto, sans-serif;
 }
 
 *{
@@ -29,8 +43,8 @@ body {
 
 h2 {
   text-align: center;
-  margin: 20px 0;
-  font-size: 22px;
+  margin-bottom: 20px;
+  font-size: 22px !important;
   font-weight: bold;
-  color: var(--color-primary);
+  color: var(--color-primary) !important;
 }

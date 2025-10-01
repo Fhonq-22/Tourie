@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Quản lý người dùng</title>
-    <link rel="stylesheet" href="../css/root.css">
-    <link rel="stylesheet" href="../css/NguoiDung.css">
-    <script src="../js/NguoiDung.js"></script>
+    <link rel="stylesheet" href="/Tourie/css/NguoiDung.css">
+    <script src="/Tourie/js/NguoiDung.js"></script>
 </head>
 <body>
-    <button class="btn-add" onclick="moPopupThem()">+ Thêm người dùng</button>
+    <button class="btn-add btn-hanhdong" onclick="moPopupThem()">+ Thêm người dùng</button>
 
     <!-- Popup thêm người dùng -->
     <div class="overlay" id="popupThem" style="display:none;">
@@ -65,7 +64,7 @@
             <input type="hidden" name="mand" id="idcansua">
 
             <div class="form-group">
-                <label>Tên người dùng:</label>
+                <label>Họ tên:</label>
                 <input type="text" id="hotencansua" disabled>
             </div>
 
@@ -143,8 +142,20 @@
         </form>
     </div>
 
+    <!-- Popup Xóa người dùng -->
+    <div class="overlay" id="popupXoa" style="display:none;">
+        <div class="popup-inner">
+            <h2>Xác nhận xóa</h2>
+            <p>Bạn có chắc muốn xóa <span id="tencanxoa"></span> không?</p>
+            <div class="popup-buttons">
+                <a href="#" id="btn-xacnhanxoa" class="btn-hanhdong">Xác nhận</a>
+                <button type="button" class="btn-hanhdong" onclick="dongPopupXoa()">Hủy</button>
+            </div>
+        </div>
+    </div>
 
-    <h2>Danh sách người dùng</h2>
+    <!-- Danh sách người dùng -->
+    <h2>DANH SÁCH NGƯỜI DÙNG</h2>
     <table>
         <tr>
             <th>ID</th>
@@ -176,7 +187,7 @@
                         <button class="btn-hanhdong" onclick="moPopupSuaAdmin(<?= $row['MaND'] ?>)">Sửa</button>
                     <?php else: ?>
                         <button class="btn-hanhdong" onclick="moPopupSua(<?= $row['MaND'] ?>, '<?= $row['HoTen'] ?>', '<?= $row['TrangThai'] ?>')">Sửa</button>
-                        <a class="btn-hanhdong" href="NguoiDungController.php?delete=<?= $row['MaND'] ?>" onclick="return confirm('Xóa người dùng này?')">Xóa</a>
+                        <button class="btn-hanhdong" onclick="moPopupXoa(<?= $row['MaND'] ?>, '<?= $row['HoTen'] ?>')">Xóa</button>
                     <?php endif; ?>
                 </td>
             </tr>

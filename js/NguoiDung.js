@@ -38,6 +38,15 @@ function dongPopupSuaAdmin() {
     document.getElementById('popupSuaAdmin').style.display = 'none';
 }
 
+function moPopupXoa(maND, hoten) {
+    document.getElementById('popupXoa').style.display = 'flex';
+    document.getElementById('tencanxoa').innerText = hoten;
+    document.getElementById('btn-xacnhanxoa').href = `NguoiDungController.php?delete=${maND}`;
+}
+
+function dongPopupXoa() {
+    document.getElementById('popupXoa').style.display = 'none';
+}
 
 async function LayViTri() {
     if (!navigator.geolocation) {
@@ -104,3 +113,4 @@ async function LayViTriAdmin() {
         alert("Lấy vị trí thất bại: " + err.message);
     });
 }
+
