@@ -56,8 +56,8 @@
 
         <div class="terms">
             Bằng việc đăng ký, bạn đồng ý với 
-            <a href="/privacy" target="_blank">Chính sách quyền riêng tư</a> và 
-            <a href="/terms" target="_blank">Điều khoản sử dụng</a> của chúng tôi.
+            <a href="/Tourie/chinh-sach" target="_blank">Chính sách quyền riêng tư</a> và 
+            <a href="/Tourie/dieu-khoan" target="_blank">Điều khoản sử dụng</a> của chúng tôi.
         </div>
     </form>
 

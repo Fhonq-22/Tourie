@@ -1,0 +1,128 @@
+@import url('root.css');
+
+/* toàn body */
+body {
+    font-family: var(--font);
+    background: linear-gradient(160deg, #f6d365 0%, #fda085 100%);
+    margin: 0;
+    color: var(--color-text);
+}
+
+/* container chính */
+.static-page-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    line-height: 1.8;
+    position: relative;
+}
+
+/* tiêu đề lớn */
+.static-page-container h1 {
+    font-size: 38px;
+    font-weight: 800;
+    text-align: center;
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 40px;
+}
+
+/* các tiêu đề phụ */
+.static-page-container h2 {
+    font-size: 24px;
+    margin: 30px 0 15px 0;
+    padding-left: 14px;
+    border-left: 6px solid var(--color-primary);
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.static-page-container h3 {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+/* paragraph */
+.static-page-container p {
+    font-size: 16px;
+    margin-bottom: 18px;
+    color: var(--color-text);
+}
+
+/* danh sách */
+.static-page-container ul {
+    list-style-type: disc;
+    margin-left: 28px;
+    margin-bottom: 20px;
+}
+.static-page-container li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* link */
+.static-page-container a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.static-page-container a:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+
+/* divider gradient */
+.static-divider {
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-main);
+    border-radius: 10px;
+    margin: 35px auto;
+}
+
+/* box nhấn mạnh */
+.static-highlight {
+    background: var(--gradient-alt);
+    padding: 25px 30px;
+    border-radius: var(--radius);
+    margin: 30px 0;
+    font-weight: 600;
+    font-size: 17px;
+    color: #333;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
+.static-highlight:hover {
+    transform: translateY(-2px);
+}
+
+/* responsive */
+@media screen and (max-width: 768px) {
+    .static-page-container {
+        padding: 35px 20px;
+    }
+    .static-page-container h1 {
+        font-size: 32px;
+    }
+    .static-page-container h2 {
+        font-size: 20px;
+    }
+    .static-page-container h3 {
+        font-size: 16px;
+    }
+    .static-page-container p, 
+    .static-page-container li {
+        font-size: 15px;
+    }
+    .static-highlight {
+        font-size: 16px;
+        padding: 20px 22px;
+    }
+}

@@ -30,6 +30,13 @@
             $controller->dangXuat();
             break;
 
+        case 'chinh-sach':
+            include __DIR__ . '/View/ChinhSachQRT.php';
+            break;
+        case 'dieu-khoan':
+            include __DIR__ . '/View/DieuKhoanSD.php';
+            break;
+
         default:
             // nếu URL không khớp, hiển thị 404
             http_response_code(404);
