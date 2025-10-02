@@ -54,7 +54,11 @@ class AuthController {
 
             if ($nguoiDung) {
                 $_SESSION['user'] = $nguoiDung;
-                header("Location: index.php");
+                if ($nguoiDung['LoaiNguoiDung'] === 'Quản trị viên') {
+                    header("Location: /Tourie/quan-ly");
+                } else {
+                    header("Location: /Tourie/trang-chu");
+                }
                 exit;
             } else {
                 $this->error = "Thông tin đăng nhập không đúng!";
