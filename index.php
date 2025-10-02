@@ -40,7 +40,7 @@
         default:
             // nếu URL không khớp, hiển thị 404
             http_response_code(404);
-            echo "Trang không tồn tại!";
+            include __DIR__ . '/View/404.php';
             break;
     }
 ?>
