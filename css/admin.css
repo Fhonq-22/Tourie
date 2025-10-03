@@ -19,8 +19,8 @@ body {
 /* sidebar */
 .sidebar {
   width: 220px;
-  background: var(--sidebar-bg);
-  color: var(--text-light);
+  background: var(--gradient-3);
+  color: var(--color-den);
   padding: 20px;
 }
 
@@ -40,7 +40,8 @@ body {
 
 .sidebar nav ul li a {
   text-decoration: none;
-  color: var(--text-light);
+  color: var(--color-den);
+  font-weight: bold;
   padding: 8px 12px;
   display: block;
   border-radius: 8px;
@@ -49,15 +50,15 @@ body {
 
 .sidebar nav ul li a:hover,
 .sidebar nav ul li a.active {
-  background: var(--primary);
-  color: #fff;
+  background: var(--gradient-2);
+  color: var(--color-trang);
 }
 
 /* main */
 .main-content {
   flex: 1;
   padding: 20px;
-  background: var(--gradient-2);
+  background: var(--gradient-5);
 }
 
 .topbar {
@@ -69,7 +70,7 @@ body {
 
 .topbar h1 {
   font-size: 1.5rem;
-  background: var(--primary);
+  background: var(--color-luc2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -81,7 +82,7 @@ body {
 }
 
 .logout-btn {
-  background: var(--secondary);
+  background: var(--gradient-4);
   border: none;
   padding: 6px 12px;
   border-radius: 6px;
@@ -102,7 +103,7 @@ body {
 }
 
 .card {
-  background: var(--card-bg);
+  background: var(--color-luc4);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -116,13 +117,13 @@ body {
 
 .card h3 {
   margin-bottom: 10px;
-  color: #555;
+  color: var(--color-xam2);
 }
 
 .card p {
   font-size: 1.5rem;
   font-weight: bold;
-  background: var(--primary);
+  background: var(--gradient-cucquang);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -130,5 +131,5 @@ body {
 /* overview */
 .overview h2 {
   margin-bottom: 10px;
-  color: #222;
+  color: var(--color-xam2);
 }
