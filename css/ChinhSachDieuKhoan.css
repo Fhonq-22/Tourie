@@ -5,7 +5,7 @@ body {
     font-family: var(--font);
     background: linear-gradient(160deg, #f6d365 0%, #fda085 100%);
     margin: 0;
-    color: var(--color-text);
+    color: var(--color-den);
 }
 
 /* container chính */
@@ -36,23 +36,23 @@ body {
     font-size: 24px;
     margin: 30px 0 15px 0;
     padding-left: 14px;
-    border-left: 6px solid var(--color-primary);
+    border-left: 6px solid var(--color-nuoc2);
     font-weight: 700;
-    color: var(--color-secondary);
+    color: var(--color-luc2);
 }
 
 .static-page-container h3 {
     font-size: 18px;
     margin-top: 20px;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-vang3);
 }
 
 /* paragraph */
 .static-page-container p {
     font-size: 16px;
     margin-bottom: 18px;
-    color: var(--color-text);
+    color: var(--color-den);
 }
 
 /* danh sách */
@@ -68,13 +68,13 @@ body {
 
 /* link */
 .static-page-container a {
-    color: var(--color-primary);
+    color: var(--color-nuoc2);
     text-decoration: none;
     font-weight: 500;
     transition: 0.3s;
 }
 .static-page-container a:hover {
-    color: var(--color-secondary);
+    color: var(--color-luc2);
     text-decoration: underline;
 }
 

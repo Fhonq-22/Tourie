@@ -1,22 +1,61 @@
 :root {
-  /* màu chính */
-  --color-primary: #0093e9;     /* xanh biển */
-  --color-secondary: #00bfa6;   /* xanh ngọc */
-  --color-accent: #f6d365;      /* vàng cát */
-  --color-warm: #fda085;        /* cam hoàng hôn */
-  --color-danger: #e63946;      /* đỏ tươi */
-  --color-bg: #fdfdfd;          
-  --color-text: #333;
-  --color-white: #fffdf7;       /* màu nền popup */
-  --color-border: #d0d0d0;      /* viền input */
-  --color-input-focus: #6bc5d2; /* viền input khi focus */
-  --color-table-even: #f9f9f9;
-  --color-table-hover: #f0fbff;
-  --color-close-btn: #666;
-  --color-th-text: #fff;
+
+  /* 🎨 bảng màu cơ bản */
+  --color-do1: #e63946;
+  --color-do2: #ff4e50;
+  --color-do3: #ff512f;
+  --color-do4: #fda085;
+  --color-do5: #fcb69f;
+  --color-cam1: #f09819;
+  --color-cam2: #d1913c;
+  --color-vang1: #f8b500;
+  --color-vang2: #f9d423;
+  --color-vang3: #f6d365;
+  --color-vang4: #fddb92;
+  --color-vang5: #d6ae7b;
+  --color-be1: #cbb29e;
+  --color-be2: #eacda3;
+  --color-be3: #ffecd2;
+  --color-xanh1: #a1ffce;
+  --color-xanh2: #96e6a1;
+  --color-xanh3: #84fab0;
+  --color-xanh4: #43e97b;
+  --color-luc1: #43cea2;
+  --color-luc2: #00bfa6;
+  --color-luc3: #80d0c7;
+  --color-luc4: #00dbde;
+  --color-luc5: #6bc5d2;
+  --color-lam1: #89f7fe;
+  --color-lam2: #a8edea;
+  --color-lam3: #d1fdff;
+  --color-lam4: #c2e9fb;
+  --color-lam5: #8fd3f4;
+  --color-cham1: #8ec5fc;
+  --color-cham2: #a1c4fd;
+  --color-cham3: #a6c1ee;
+  --color-cham4: #e0eafc;
+  --color-cham5: #cfdef3;
+  --color-nuoc1: #4facfe;
+  --color-nuoc2: #0093e9;
+  --color-nuoc3: #0072ff;
+  --color-nuoc4: #185a9d;
+  --color-tim1: #e0c3fc;
+  --color-tim2: #b490ca;
+  --color-tim3: #fbc2eb;
+  --color-hong1: #dd2476;
+  --color-hong2: #fed6e3;
+  --color-hong3: #ffdde1;
+  --color-hong4: #ee9ca7;
+  --color-hong5: #ff9a9e;
+  --color-trang: #fdfdfd;
+  --color-xam1: #d0d0d0;
+  --color-xam2: #666;
+  --color-den: #333;
+
+  
   --color-th-bg: linear-gradient(135deg, #6bc5d2, #57a7f2);
   --color-btn-action-bg: linear-gradient(135deg, #6bc5d2, #57a7f2);
-  --color-link-action-bg: linear-gradient(135deg, var(--color-warm), var(--color-danger));
+  --color-link-action-bg: linear-gradient(135deg, var(--color-do4), var(--color-do1));
 
   --gradient-1: linear-gradient(to bottom, #a8edea, #fed6e3); /* bầu trời + mây hồng */
   --gradient-2: linear-gradient(135deg, #0093e9, #00bfa6);
@@ -56,8 +95,6 @@
   --gradient-hoanghon: linear-gradient(160deg, #fbc2eb 0%, #f6d365 40%, #fda085 100%); /* hồng cam + vàng chiều tà */
   --gradient-binhminh: linear-gradient(120deg, #fddb92 0%, #d1fdff 40%, #a1c4fd 100%); /* vàng nhạt + xanh trời sáng */
 
-
-
   /* radius, shadow, font */
   --radius: 8px;
   --shadow: 0 8px 20px rgba(0,0,0,0.2);
@@ -74,7 +111,7 @@ body {
   margin: 0;
   font-family: var(--font);
   background: var(--color-bg);
-  color: var(--color-text);
+  color: var(--color-den);
 }
 
 h2 {
@@ -82,5 +119,5 @@ h2 {
   margin-bottom: 20px;
   font-size: 22px !important;
   font-weight: bold;
-  color: var(--color-primary) !important;
+  color: var(--color-nuoc2) !important;
 }

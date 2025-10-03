@@ -5,7 +5,7 @@
     width: 100%;
     max-width: 420px;
     margin: 50px auto;
-    background: var(--color-white);
+    background: var(--color-trang);
     padding: 28px 24px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
@@ -33,7 +33,7 @@
     cursor: pointer;
     font-weight: bold;
     font-size: 16px;
-    color: var(--color-white);
+    color: var(--color-trang);
     border-radius: var(--radius);
     transition: 0.3s;
     position: relative;
@@ -41,7 +41,7 @@
 
 .auth-tabs .tab-btn.active {
     background: var(--gradient-2);
-    color: var(--color-white);
+    color: var(--color-trang);
     box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
@@ -67,20 +67,20 @@
     margin-bottom: 4px;
     font-size: 14px;
     font-weight: 500;
-    color: var(--color-primary);
+    color: var(--color-nuoc2);
 }
 
 .form-group input {
     padding: 12px 14px;
     font-size: 14px;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-xam1);
     border-radius: var(--radius);
     outline: none;
     transition: 0.2s;
 }
 
 .form-group input:focus {
-    border-color: var(--color-input-focus);
+    border-color: var(--color-luc5);
     box-shadow: 0 0 8px rgba(0,147,233,0.3);
 }
 
@@ -89,7 +89,7 @@ button[type="submit"] {
     padding: 14px 0;
     font-size: 16px;
     font-weight: bold;
-    color: var(--color-th-text);
+    color: var(--color-trang);
     background: var(--gradient-2);
     border: none;
     border-radius: var(--radius);
@@ -109,7 +109,7 @@ button[type="submit"]:hover {
     text-align: center;
     margin-top: 15px;
     font-size: 14px;
-    color: var(--color-text);
+    color: var(--color-den);
 }
 
 .login-alt span {
@@ -126,17 +126,17 @@ button[type="submit"]:hover {
     cursor: pointer;
     font-weight: bold;
     font-size: 14px;
-    background: var(--color-accent); /* vàng cát pastel */
-    color: var(--color-white);       /* chữ trắng nổi bật */
+    background: var(--color-vang3); /* vàng cát pastel */
+    color: var(--color-trang);       /* chữ trắng nổi bật */
     transition: 0.3s;
 }
 
 .login-alt button[data-type="sdt"] {
-    background: var(--color-secondary); /* xanh ngọc pastel */
+    background: var(--color-luc2); /* xanh ngọc pastel */
 }
 
 .login-alt button[data-type="mand"] {
-    background: var(--color-warm); /* cam hoàng hôn pastel */
+    background: var(--color-do4); /* cam hoàng hôn pastel */
 }
 
 .login-alt button:hover {
@@ -168,21 +168,21 @@ button[type="submit"]:hover {
 .terms {
     font-size: 13px;
     font-style: italic;
-    color: var(--color-text); /* màu chữ chính */
+    color: var(--color-den); /* màu chữ chính */
     margin-top: 12px;
     text-align: center;
     line-height: 1.4;
 }
 
 .terms a {
-    color: var(--color-secondary); /* xanh ngọc */
+    color: var(--color-luc2); /* xanh ngọc */
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
 }
 
 .terms a:hover {
-    color: var(--color-primary); /* xanh biển đậm khi hover */
+    color: var(--color-nuoc2); /* xanh biển đậm khi hover */
     text-decoration: underline;
 }
 
@@ -191,7 +191,7 @@ button[type="submit"]:hover {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: var(--color-danger);
+    background: var(--color-do1);
     color: white;
     padding: 12px 20px;
     border-radius: var(--radius);

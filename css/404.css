@@ -67,7 +67,7 @@ body {
 .error-content h1 {
   font-size: 100px;
   margin: 0;
-  color: var(--color-primary, #0077b6);
+  color: var(--color-nuoc2, #0077b6);
 }
 
 .error-content p {
