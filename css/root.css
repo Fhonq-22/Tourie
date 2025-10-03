@@ -18,14 +18,50 @@
   --color-btn-action-bg: linear-gradient(135deg, #6bc5d2, #57a7f2);
   --color-link-action-bg: linear-gradient(135deg, var(--color-warm), var(--color-danger));
 
+  --gradient-1: linear-gradient(to bottom, #a8edea, #fed6e3); /* bầu trời + mây hồng */
+  --gradient-2: linear-gradient(135deg, #0093e9, #00bfa6);
+  --gradient-3: linear-gradient(to top, #0093e9 0%, #80d0c7 100%); /* biển xanh */
+  --gradient-4: linear-gradient(160deg, #f6d365 0%, #fda085 100%); /* hoàng hôn */
+  --gradient-5: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); /* nhiệt đới xanh ngọc */
+  --gradient-6: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 100%); /* hồng biển + xanh tím */
+  --gradient-7: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%); /* cát vàng - nước trong */
+  --gradient-8: linear-gradient(to right, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); /* pastel hồng hè */
+  --gradient-9: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%); /* xanh núi + tím mây */
+
+  /* 🌸 theo mùa */
+  --gradient-xuan: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 40%, #a1ffce 100%); /* hồng hoa + xanh non */
+  --gradient-ha: linear-gradient(135deg, #fceabb 0%, #f8b500 40%, #fbc2eb 100%); /* vàng nắng + hồng hoa giấy */
+  --gradient-thu: linear-gradient(135deg, #f6d365 0%, #fda085 40%, #d1913c 100%); /* vàng cam lá phong + nâu */
+  --gradient-dong: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 40%, #ffffff 100%); /* xanh băng + tím nhạt + trắng tuyết */
+
+  /* 🏖️ theo cảnh quan */
+  --gradient-bien: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 50%, #ffffff 100%); /* xanh biển + trời */
+  --gradient-baibien: linear-gradient(to right, #fceabb 0%, #f8b500 40%, #ffd194 100%); /* cát vàng + nắng ấm */
+  --gradient-nui: linear-gradient(135deg, #5ee7df 0%, #96e6a1 50%, #b490ca 100%); /* xanh lá + mây tím */
+  --gradient-rung: linear-gradient(135deg, #d4fc79 0%, #96e6a1 40%, #a8edea 100%); /* xanh lá + xanh ngọc */
+  --gradient-samac: linear-gradient(135deg, #f6d365 0%, #fda085 40%, #fbc2eb 100%); /* cát vàng + cam + hồng trời chiều */
+  --gradient-song: linear-gradient(to right, #43cea2 0%, #185a9d 50%, #89f7fe 100%); /* xanh ngọc + xanh đậm + sáng nước */
+
+  /* 🏰 theo trải nghiệm */
+  --gradient-lichsu: linear-gradient(to right, #d6ae7b 0%, #eacda3 40%, #cbb29e 100%); /* đồng cổ + vàng nâu */
+  --gradient-vanhoa: linear-gradient(135deg, #ffecd2 0%, #fcb69f 40%, #ffdde1 100%); /* be sáng + cam + hồng nhẹ */
+  --gradient-phieuluu: linear-gradient(135deg, #ff9a9e 0%, #fecfef 40%, #f6d365 100%); /* đỏ hồng + vàng cam */
+  --gradient-langman: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 40%, #d4fc79 100%); /* hồng + tím + xanh non */
+  --gradient-lehoi: linear-gradient(45deg, #f9d423 0%, #ff4e50 40%, #fcb69f 100%); /* vàng rực + đỏ + cam pastel */
+
+  /* ❄️ thiên nhiên đặc biệt */
+  --gradient-tuyet: linear-gradient(to bottom, #e0eafc 0%, #cfdef3 50%, #ffffff 100%); /* xanh băng + trắng tuyết */
+  --gradient-nuilua: linear-gradient(120deg, #ff512f 0%, #f09819 40%, #dd2476 100%); /* đỏ cam + cam vàng + tím hồng */
+  --gradient-cucquang: linear-gradient(120deg, #00dbde 0%, #0072ff 40%, #4facfe 70%, #43e97b 100%); /* xanh ngọc + xanh dương + xanh lá cực quang */
+  --gradient-hoanghon: linear-gradient(160deg, #fbc2eb 0%, #f6d365 40%, #fda085 100%); /* hồng cam + vàng chiều tà */
+  --gradient-binhminh: linear-gradient(120deg, #fddb92 0%, #d1fdff 40%, #a1c4fd 100%); /* vàng nhạt + xanh trời sáng */
+
+
+
   /* radius, shadow, font */
   --radius: 8px;
   --shadow: 0 8px 20px rgba(0,0,0,0.2);
   --font: "Segoe UI", Roboto, sans-serif;
-
-  /* gradient tổng quát */
-  --gradient-main: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  --gradient-alt: linear-gradient(135deg, var(--color-accent), var(--color-warm));
 }
 
 *{

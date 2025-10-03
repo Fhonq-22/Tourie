@@ -1,7 +1,13 @@
 RewriteEngine On
 RewriteBase /Tourie/
 
-# Chuyển tất cả request đến index.php trừ các file/tệp thật sự tồn tại
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+# nếu request là file hoặc thư mục có thật thì bỏ qua
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# admin routes
+RewriteRule ^admin/?(.*)$ admin.php?url=$1 [L,QSA]
+
+# client routes
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
