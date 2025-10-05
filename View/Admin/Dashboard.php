@@ -15,6 +15,7 @@
         <ul>
           <li><a href="admin.php?url=dashboard" class="active">📊 Dashboard</a></li>
           <li><a href="admin.php?url=nguoi-dung">👤 Người dùng</a></li>
+          <li><a href="admin.php?url=dia-diem">Địa điểm</a></li>
           <li><a href="admin.php?url=tour">🗺️ Tour</a></li>
           <li><a href="admin.php?url=dat-tour">📝 Đặt tour</a></li>
           <li><a href="admin.php?url=danh-gia">⭐ Đánh giá</a></li>
