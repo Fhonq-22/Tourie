@@ -52,6 +52,7 @@
   <!-- popup thêm -->
     <div id="popupThem" class="popup">
         <form method="POST" action="" enctype="multipart/form-data" class="form">
+            <span type="button" onclick="dongPopupThem()" class="btn-cancel">✖</span>
             <h3>Thêm địa điểm</h3>
 
             <label>Tên địa điểm</label>
@@ -79,13 +80,13 @@
 
             <div class="btn-group">
                 <button type="submit" name="add" class="btn-save">💾 Lưu</button>
-                <button type="button" onclick="dongPopupThem()" class="btn-cancel">✖ Hủy</button>
             </div>
         </form>
     </div>
 
     <div id="popupSua" class="popup">
         <form method="POST" action="" enctype="multipart/form-data" id="formSua" class="form">
+            <span type="button" onclick="dongPopupSua()" class="btn-cancel">✖</span>
             <h3>Sửa địa điểm</h3>
             <input type="hidden" name="MaDD" id="edit_MaDD">
             <label>Tên địa điểm</label>
@@ -112,7 +113,6 @@
 
             <div class="btn-group">
                 <button type="submit" name="update" class="btn-save">💾 Lưu</button>
-                <button type="button" onclick="dongPopupSua()" class="btn-cancel">✖ Hủy</button>
             </div>
         </form>
     </div>

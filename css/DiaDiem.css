@@ -2,7 +2,7 @@
 
 body {
   font-family: var(--font);
-  background: var(--gradient-5);
+  background: var(--gradient-3);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -24,18 +24,19 @@ h2 {
   color: var(--color-nuoc4);
   font-size: 28px;
   letter-spacing: 1px;
-  margin-bottom: 25px;
+  margin-bottom: 24px;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 /* nút thêm */
 .btn-add {
-  background: var(--gradient-2);
+  background: var(--gradient-3);
   color: white;
   border: none;
   padding: 10px 18px;
   border-radius: var(--radius);
   font-size: 15px;
+  font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -56,11 +57,11 @@ h2 {
 }
 
 .table th {
-  background: var(--gradient-xuan);
-  color: var(--color-den);
+  background: var(--gradient-3);
+  color: var(--color-trang);
   padding: 12px 10px;
   text-align: center;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 15px;
 }
 
@@ -96,18 +97,19 @@ h2 {
   border-radius: var(--radius);
   cursor: pointer;
   font-size: 13px;
+  font-weight: bold;
   text-decoration: none;
   color: white;
   transition: all 0.2s;
 }
 .btn-edit {
-  background: var(--gradient-2);
+  background: var(--gradient-3);
 }
 .btn-edit:hover {
   transform: scale(1.05);
 }
 .btn-del {
-  background: var(--gradient-nuilua);
+  background: var(--gradient-lehoi);
 }
 .btn-del:hover {
   transform: scale(1.05);
@@ -128,10 +130,12 @@ h2 {
 }
 
 .popup .form {
+  position: relative;
   background: #fff;
   padding: 25px 30px;
   border-radius: 16px;
-  width: 400px;
+  width: 90%;
+  max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: var(--shadow);
@@ -146,13 +150,13 @@ h2 {
 .form h3 {
   text-align: center;
   color: var(--color-nuoc3);
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .form label {
   font-weight: 500;
   display: block;
-  margin-top: 10px;
+  margin-top: 8px;
   color: var(--color-den);
 }
 
@@ -161,7 +165,7 @@ h2 {
   padding: 8px 10px;
   border-radius: var(--radius);
   border: 1px solid #ccc;
-  margin-top: 5px;
+  margin-top: 4px;
   font-size: 14px;
 }
 
@@ -193,18 +197,12 @@ h2 {
   transform: scale(1.05);
 }
 
-/* nhóm nút */
-.btn-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 18px;
-}
-
 .btn-save {
   background: var(--gradient-3);
   color: white;
   border: none;
   padding: 8px 14px;
+  margin-top: 8px;
   border-radius: var(--radius);
   cursor: pointer;
   transition: 0.2s;
@@ -214,14 +212,15 @@ h2 {
 }
 
 .btn-cancel {
-  background: var(--gradient-hoanghon);
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: var(--radius);
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 24px;
   cursor: pointer;
+  color: var(--color-xam2);
   transition: 0.2s;
 }
 .btn-cancel:hover {
+  color: var(--color-do1);
   transform: scale(1.05);
 }
