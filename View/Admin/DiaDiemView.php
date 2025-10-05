@@ -40,7 +40,7 @@
           <td><?= $row['ViTriLat'] ?></td>
           <td><?= $row['ViTriLng'] ?></td>
           <td>
-            <button class="btn-edit" onclick="moPopupSua(<?= $row['MaDD'] ?>)">Sửa</button>
+            <button class="btn-edit" data-row='<?= htmlspecialchars(json_encode($row), ENT_QUOTES) ?>'>Sửa</button>
             <a class="btn-del" href="?delete=<?= $row['MaDD'] ?>" onclick="return confirm('Xóa địa điểm này?')">Xóa</a>
           </td>
         </tr>
@@ -50,39 +50,72 @@
   </div>
 
   <!-- popup thêm -->
-  <div id="popupThem" class="popup">
-    <form method="POST" action="" enctype="multipart/form-data" class="form">
-      <h3>Thêm địa điểm</h3>
+    <div id="popupThem" class="popup">
+        <form method="POST" action="" enctype="multipart/form-data" class="form">
+            <h3>Thêm địa điểm</h3>
 
-      <label>Tên địa điểm</label>
-      <input type="text" name="TenDD" placeholder="Tên địa điểm" required>
+            <label>Tên địa điểm</label>
+            <input type="text" name="TenDD" placeholder="Tên địa điểm" required>
 
-      <label>Địa chỉ</label>
-      <input type="text" name="DiaChi" placeholder="Địa chỉ">
+            <label>Địa chỉ</label>
+            <input type="text" name="DiaChi" placeholder="Địa chỉ">
 
-      <label>Mô tả</label>
-      <textarea name="MoTa" placeholder="Mô tả"></textarea>
+            <label>Mô tả</label>
+            <textarea name="MoTa" placeholder="Mô tả"></textarea>
 
-      <label>Ảnh đại diện</label>
-      <input type="file" name="AnhDaiDien" accept="image/*">
-      <small>Hoặc dán link ảnh:</small>
-      <input type="text" name="AnhDaiDienLink" placeholder="https://...">
+            <label>Ảnh đại diện</label>
+            <input type="file" name="AnhDaiDien" accept="image/*">
+            <small>Hoặc dán link ảnh:</small>
+            <input type="text" name="AnhDaiDienLink" placeholder="https://...">
 
-      <label>Vị trí / Link bản đồ</label>
-      <input type="text" name="LinkMap" id="linkmap" placeholder="Dán link bản đồ hoặc nhập lat,lng">
+            <label>Vị trí / Link bản đồ</label>
+            <input type="text" name="LinkMap" id="linkmap" placeholder="Dán link bản đồ hoặc nhập lat,lng">
 
-      <div class="coords">
-        <input type="text" name="ViTriLat" id="vitrilat" placeholder="Vĩ độ (lat)">
-        <input type="text" name="ViTriLng" id="vitrilng" placeholder="Kinh độ (lng)">
-        <button type="button" onclick="phanTichLink()">↻ Lấy tọa độ</button>
-      </div>
+            <div class="coords">
+                <input type="text" name="ViTriLat" id="vitrilat" placeholder="Vĩ độ (lat)">
+                <input type="text" name="ViTriLng" id="vitrilng" placeholder="Kinh độ (lng)">
+                <button type="button" onclick="phanTichLink()">↻ Lấy tọa độ</button>
+            </div>
 
-      <div class="btn-group">
-        <button type="submit" name="add" class="btn-save">💾 Lưu</button>
-        <button type="button" onclick="dongPopupThem()" class="btn-cancel">✖ Hủy</button>
-      </div>
-    </form>
-  </div>
+            <div class="btn-group">
+                <button type="submit" name="add" class="btn-save">💾 Lưu</button>
+                <button type="button" onclick="dongPopupThem()" class="btn-cancel">✖ Hủy</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="popupSua" class="popup">
+        <form method="POST" action="" enctype="multipart/form-data" id="formSua" class="form">
+            <h3>Sửa địa điểm</h3>
+            <input type="hidden" name="MaDD" id="edit_MaDD">
+            <label>Tên địa điểm</label>
+            <input type="text" name="TenDD" id="edit_TenDD" required>
+
+            <label>Địa chỉ</label>
+            <input type="text" name="DiaChi" id="edit_DiaChi">
+
+            <label>Mô tả</label>
+            <textarea name="MoTa" id="edit_MoTa"></textarea>
+
+            <label>Ảnh mới (nếu muốn thay)</label>
+            <input type="file" name="AnhDaiDien" accept="image/*">
+            <input type="text" name="AnhLink" id="edit_AnhLink" placeholder="Hoặc link ảnh">
+
+            <label>Vĩ độ / Kinh độ</label>
+            <div class="coords">
+                <input type="text" name="ViTriLat" id="edit_ViTriLat" placeholder="Vĩ độ">
+                <input type="text" name="ViTriLng" id="edit_ViTriLng" placeholder="Kinh độ">
+            </div>
+
+            <label>Link map</label>
+            <input type="text" name="LinkMap" id="edit_LinkMap">
+
+            <div class="btn-group">
+                <button type="submit" name="update" class="btn-save">💾 Lưu</button>
+                <button type="button" onclick="dongPopupSua()" class="btn-cancel">✖ Hủy</button>
+            </div>
+        </form>
+    </div>
 
   <script src="/Tourie/js/DiaDiem.js"></script>
 </body>

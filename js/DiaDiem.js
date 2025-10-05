@@ -5,6 +5,27 @@ function dongPopupThem() {
     document.getElementById('popupThem').style.display = 'none';
 }
 
+document.querySelectorAll('.btn-edit').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const data = JSON.parse(btn.getAttribute('data-row'));
+    moPopupSua(data);
+  });
+});
+function moPopupSua(data) {
+  document.getElementById('popupSua').style.display = 'flex';
+  document.getElementById('edit_MaDD').value = data.MaDD;
+  document.getElementById('edit_TenDD').value = data.TenDD;
+  document.getElementById('edit_DiaChi').value = data.DiaChi;
+  document.getElementById('edit_MoTa').value = data.MoTa;
+  document.getElementById('edit_AnhLink').value = data.AnhDaiDien ?? '';
+  document.getElementById('edit_ViTriLat').value = data.ViTriLat;
+  document.getElementById('edit_ViTriLng').value = data.ViTriLng;
+  document.getElementById('edit_LinkMap').value = data.LinkMap ?? '';
+}
+function dongPopupSua() {
+    document.getElementById('popupSua').style.display = 'none';
+}
+
 function phanTichLink() {
   const link = document.getElementById('linkmap').value.trim();
   if (!link) {

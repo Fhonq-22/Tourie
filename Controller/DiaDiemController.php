@@ -57,27 +57,29 @@ class DiaDiemController {
     }
 
     public function edit() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit'])) {
-            $id = $_POST['MaDD'];
-            $lat = $_POST['ViTriLat'] ?? null;
-            $lng = $_POST['ViTriLng'] ?? null;
-            $linkMap = $_POST['LinkMap'] ?? '';
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['update'])) {
+            $id = $_POST['MaDD'] ?? null;
+            if (!$id) return;
 
-            // xử lý upload ảnh (nếu có)
-            $anh = $_POST['AnhCu'] ?? '';
+            $old = $this->model->getById($id);
+            $anh = $old['AnhDaiDien'] ?? '';
+
+            // upload ảnh mới nếu có
             if (!empty($_FILES['AnhDaiDien']['name'])) {
-                $targetDir = __DIR__ . '/../../uploads/diadiem/';
-                if (!is_dir($targetDir)) {
-                    mkdir($targetDir, 0777, true);
-                }
+                $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Tourie/uploads/diadiem/';
+                if (!is_dir($targetDir)) mkdir($targetDir, 0777, true);
                 $fileName = time() . "_" . basename($_FILES['AnhDaiDien']['name']);
                 $targetFile = $targetDir . $fileName;
-
                 if (move_uploaded_file($_FILES['AnhDaiDien']['tmp_name'], $targetFile)) {
                     $anh = '/Tourie/uploads/diadiem/' . $fileName;
                 }
+            } elseif (!empty($_POST['AnhLink'])) {
+                $anh = $_POST['AnhLink'];
             }
 
+            $lat = $_POST['ViTriLat'] ?? null;
+            $lng = $_POST['ViTriLng'] ?? null;
+            $linkMap = $_POST['LinkMap'] ?? '';
             if ((!$linkMap || trim($linkMap) === '') && $lat && $lng) {
                 $linkMap = "https://www.google.com/maps?q={$lat},{$lng}";
             }
@@ -91,6 +93,7 @@ class DiaDiemController {
                 'ViTriLng' => $lng,
                 'LinkMap' => $linkMap
             ]);
+
             header("Location: /Tourie/admin/dia-diem");
             exit;
         }
