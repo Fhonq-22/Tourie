@@ -10,10 +10,12 @@
         case 'nguoi-dung':
             require_once 'Controller/NguoiDungController.php';
             $controller = new NguoiDungController();
-            $controller->index(); // phương thức hiển thị danh sách
-            break;
-            include __DIR__ . '/View/Admin/NguoiDung.php';
-            break;
+            if (isset($_POST['add'])) $controller->add();
+            elseif (isset($_POST['editAdmin'])) $controller->editAdmin();
+            elseif (isset($_POST['editStatus'])) $controller->editStatus();
+            elseif (isset($_GET['delete'])) $controller->delete();
+            else $controller->index(); // hiển thị danh sách
+            break;    
 
         case 'tour':
             include __DIR__ . '/View/Admin/Tour.php';

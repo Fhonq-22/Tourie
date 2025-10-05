@@ -62,7 +62,7 @@ async function LayViTri() {
         document.getElementById('vitrilng').value = lng;
 
         try {
-            const url = new URL("../Controller/NguoiDungController.php", window.location.href);
+            const url = new URL("/Tourie/Controller/NguoiDungController.php", window.location.origin);
             url.searchParams.set("lat", lat);
             url.searchParams.set("lon", lng);
 
@@ -95,7 +95,7 @@ async function LayViTriAdmin() {
         document.getElementById('vitrilngAdmin').value = lng;
 
         try {
-            const url = new URL("../Controller/NguoiDungController.php", window.location.href);
+            const url = new URL("/Tourie/Controller/NguoiDungController.php", window.location.origin);
             url.searchParams.set("lat", lat);
             url.searchParams.set("lon", lng);
 
@@ -113,4 +113,3 @@ async function LayViTriAdmin() {
         alert("Lấy vị trí thất bại: " + err.message);
     });
 }
-
