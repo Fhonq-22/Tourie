@@ -191,7 +191,7 @@ a.btn-hanhdong, button.btn-hanhdong[onclick^="moPopupXoa"] {
 
 /* popup xóa */
 #popupXoa .popup-inner {
-    background: var(--color-bg);
+    background: var(--color-trang);
     padding: 20px 25px;
     border-radius: 12px;
     max-width: 360px;
