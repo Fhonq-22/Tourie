@@ -1,0 +1,210 @@
+@import url('root.css');
+
+body {
+  background: var(--gradient-phieuluu);
+  font-family: var(--font);
+  padding: 30px;
+  color: var(--color-den);
+}
+
+.admin-container {
+  max-width: 1100px;
+  margin: auto;
+  background: var(--color-trang);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 30px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  text-align: center;
+  color: var(--color-nuoc3);
+  font-size: 26px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.admin-container > button {
+  background: var(--gradient-2);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  display: block;
+  margin-left: auto;
+  margin-bottom: 15px;
+}
+
+.admin-container > button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+th {
+  background: var(--gradient-7);
+  color: var(--color-den);
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+tr:hover {
+  background-color: #f9fafc;
+  transition: 0.2s;
+}
+
+td img {
+  width: 90px;
+  height: 60px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+button, a {
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+td button {
+  background: var(--gradient-4);
+  color: white;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: 0.3s;
+  margin-right: 5px;
+}
+
+td button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+td a {
+  background: var(--gradient-nuilua);
+  color: white;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+td a:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* popup form */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.4s ease;
+}
+
+.form {
+  background: var(--color-trang);
+  padding: 25px 30px;
+  border-radius: var(--radius);
+  width: 400px;
+  box-shadow: var(--shadow);
+  animation: popupIn 0.3s ease;
+}
+
+@keyframes popupIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.form h3 {
+  text-align: center;
+  color: var(--color-nuoc3);
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.form input[type="text"],
+.form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.form input:focus, 
+.form textarea:focus {
+  border-color: var(--color-nuoc2);
+  outline: none;
+  box-shadow: 0 0 5px var(--color-nuoc1);
+}
+
+.form button {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 8px 15px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.form button[type="button"]:not(:last-child) {
+  background: var(--gradient-2);
+}
+
+.form button[type="submit"] {
+  background: var(--gradient-4);
+}
+
+.form button:last-child {
+  background: var(--gradient-nuilua);
+}
+
+.form button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* tiện ích hiển thị popup */
+.popup.active {
+  display: flex;
+}

@@ -15,8 +15,15 @@
             elseif (isset($_POST['editStatus'])) $controller->editStatus();
             elseif (isset($_GET['delete'])) $controller->delete();
             else $controller->index(); // hiển thị danh sách
-            break;    
-
+            break;  
+        case 'dia-diem':
+            require_once 'Controller/DiaDiemController.php';
+            $controller = new DiaDiemController();
+            $controller->add();
+            $controller->edit();
+            $controller->delete();
+            $controller->index();
+            break; 
         case 'tour':
             include __DIR__ . '/View/Admin/Tour.php';
             break;
