@@ -8,58 +8,49 @@ class DiaDiemController {
         $this->model = new DiaDiemModel();
     }
 
-    // Lấy địa chỉ từ lat/lon (reverse geocode)
-    public function reverseGeocode() {
-        if (isset($_GET['lat']) && isset($_GET['lon'])) {
-            $lat = $_GET['lat'];
-            $lon = $_GET['lon'];
-            $url = "https://nominatim.openstreetmap.org/reverse?format=json&lat=$lat&lon=$lon&accept-language=vi";
-
-            $opts = ["http" => ["header" => "User-Agent: TourieApp/1.0\r\n"]];
-            $context = stream_context_create($opts);
-            $data = @file_get_contents($url, false, $context);
-
-            header("Content-Type: application/json; charset=utf-8");
-            echo $data ?: json_encode(["error" => "Không lấy được dữ liệu"]);
-            exit;
-        }
-    }
-
-    // Lấy tọa độ từ địa chỉ (geocode)
-    public function geocode() {
-        if (isset($_GET['address'])) {
-            $address = urlencode($_GET['address']);
-            $url = "https://nominatim.openstreetmap.org/search?q=$address&format=json&limit=1";
-
-            $opts = ["http" => ["header" => "User-Agent: TourieApp/1.0\r\n"]];
-            $context = stream_context_create($opts);
-            $data = @file_get_contents($url, false, $context);
-
-            header("Content-Type: application/json; charset=utf-8");
-            echo $data ?: json_encode(["error" => "Không lấy được tọa độ"]);
-            exit;
-        }
-    }
-
     public function index() {
-        $this->reverseGeocode();
-        $this->geocode();
-        $list = $this->model->getAll();
+        $diadiems = $this->model->getAll();
         include __DIR__ . '/../View/Admin/DiaDiemView.php';
     }
 
     public function add() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add'])) {
-            $data = [
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add'])) {
+            $lat = $_POST['ViTriLat'] ?? null;
+            $lng = $_POST['ViTriLng'] ?? null;
+            $linkMap = $_POST['LinkMap'] ?? '';
+
+            // xử lý upload ảnh
+            $anh = '';
+            if (!empty($_FILES['AnhDaiDien']['name'])) {
+                $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Tourie/uploads/diadiem/';
+                if (!is_dir($targetDir)) {
+                    mkdir($targetDir, 0777, true);
+                }
+                $fileName = time() . "_" . basename($_FILES['AnhDaiDien']['name']);
+                $targetFile = $targetDir . $fileName;
+
+                if (move_uploaded_file($_FILES['AnhDaiDien']['tmp_name'], $targetFile)) {
+                    $anh = '/Tourie/uploads/diadiem/' . $fileName;
+                }
+            } else {
+                $anh = $_POST['AnhLink'] ?? ''; // nếu người dùng nhập link thay vì upload
+            }
+
+            // nếu chưa có link map thì tự sinh
+            if ((!$linkMap || trim($linkMap) === '') && $lat && $lng) {
+                $linkMap = "https://www.google.com/maps?q={$lat},{$lng}";
+            }
+
+            $this->model->add([
                 'TenDD' => $_POST['TenDD'],
-                'DiaChi' => $_POST['DiaChi'] ?? null,
-                'MoTa' => $_POST['MoTa'] ?? null,
-                'AnhDaiDien' => $_POST['AnhDaiDien'] ?? null,
-                'ViTriLat' => $_POST['ViTriLat'] ?? null,
-                'ViTriLng' => $_POST['ViTriLng'] ?? null,
-                'LinkMap' => $_POST['LinkMap'] ?? null
-            ];
-            $this->model->add($data);
+                'DiaChi' => $_POST['DiaChi'] ?? '',
+                'MoTa' => $_POST['MoTa'] ?? '',
+                'AnhDaiDien' => $anh,
+                'ViTriLat' => $lat,
+                'ViTriLng' => $lng,
+                'LinkMap' => $linkMap
+            ]);
+
             header("Location: /Tourie/admin/dia-diem");
             exit;
         }
@@ -68,16 +59,38 @@ class DiaDiemController {
     public function edit() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit'])) {
             $id = $_POST['MaDD'];
-            $data = [
+            $lat = $_POST['ViTriLat'] ?? null;
+            $lng = $_POST['ViTriLng'] ?? null;
+            $linkMap = $_POST['LinkMap'] ?? '';
+
+            // xử lý upload ảnh (nếu có)
+            $anh = $_POST['AnhCu'] ?? '';
+            if (!empty($_FILES['AnhDaiDien']['name'])) {
+                $targetDir = __DIR__ . '/../../uploads/diadiem/';
+                if (!is_dir($targetDir)) {
+                    mkdir($targetDir, 0777, true);
+                }
+                $fileName = time() . "_" . basename($_FILES['AnhDaiDien']['name']);
+                $targetFile = $targetDir . $fileName;
+
+                if (move_uploaded_file($_FILES['AnhDaiDien']['tmp_name'], $targetFile)) {
+                    $anh = '/Tourie/uploads/diadiem/' . $fileName;
+                }
+            }
+
+            if ((!$linkMap || trim($linkMap) === '') && $lat && $lng) {
+                $linkMap = "https://www.google.com/maps?q={$lat},{$lng}";
+            }
+
+            $this->model->update($id, [
                 'TenDD' => $_POST['TenDD'],
-                'DiaChi' => $_POST['DiaChi'],
-                'MoTa' => $_POST['MoTa'],
-                'AnhDaiDien' => $_POST['AnhDaiDien'],
-                'ViTriLat' => $_POST['ViTriLat'],
-                'ViTriLng' => $_POST['ViTriLng'],
-                'LinkMap' => $_POST['LinkMap']
-            ];
-            $this->model->update($id, $data);
+                'DiaChi' => $_POST['DiaChi'] ?? '',
+                'MoTa' => $_POST['MoTa'] ?? '',
+                'AnhDaiDien' => $anh,
+                'ViTriLat' => $lat,
+                'ViTriLng' => $lng,
+                'LinkMap' => $linkMap
+            ]);
             header("Location: /Tourie/admin/dia-diem");
             exit;
         }
@@ -85,8 +98,7 @@ class DiaDiemController {
 
     public function delete() {
         if (isset($_GET['delete'])) {
-            $id = $_GET['delete'];
-            $this->model->delete($id);
+            $this->model->delete($_GET['delete']);
             header("Location: /Tourie/admin/dia-diem");
             exit;
         }

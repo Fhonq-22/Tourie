@@ -1,144 +1,147 @@
 @import url('root.css');
 
-body {
-  background: var(--gradient-phieuluu);
-  font-family: var(--font);
-  padding: 30px;
-  color: var(--color-den);
-}
-
 .admin-container {
+  width: 90%;
   max-width: 1100px;
-  margin: auto;
+  margin: 40px auto;
   background: var(--color-trang);
+  padding: 30px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 30px;
+  backdrop-filter: blur(6px);
   animation: fadeIn 0.4s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-h2 {
+/* tiêu đề */
+.admin-container h2 {
+  font-size: 26px;
+  margin-bottom: 25px;
   text-align: center;
   color: var(--color-nuoc3);
-  font-size: 26px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  background: linear-gradient(90deg, var(--color-nuoc2), var(--color-luc2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.admin-container > button {
-  background: var(--gradient-2);
-  color: white;
+/* nút thêm */
+.btn-add {
+  display: inline-block;
+  background: var(--color-btn-action-bg);
+  color: #fff;
   border: none;
-  padding: 10px 20px;
   border-radius: var(--radius);
+  padding: 10px 18px;
+  font-size: 15px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
   transition: 0.3s;
-  display: block;
-  margin-left: auto;
   margin-bottom: 15px;
 }
-
-.admin-container > button:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+.btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-table {
+/* bảng danh sách */
+.table {
   width: 100%;
   border-collapse: collapse;
   overflow: hidden;
   border-radius: var(--radius);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-th {
-  background: var(--gradient-7);
-  color: var(--color-den);
-  text-align: left;
-  padding: 12px;
-  font-weight: 600;
+.table th {
+  background: var(--color-th-bg);
+  color: #fff;
+  text-align: center;
+  padding: 10px 6px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
-td {
-  padding: 12px;
+.table td {
+  text-align: center;
+  padding: 10px 6px;
   border-bottom: 1px solid #eee;
-  vertical-align: middle;
+  font-size: 14px;
 }
 
-tr:hover {
-  background-color: #f9fafc;
-  transition: 0.2s;
+.table tr:nth-child(even) {
+  background: #fafafa;
 }
 
-td img {
-  width: 90px;
+.table tr:hover {
+  background: #f2faff;
+}
+
+/* ảnh */
+.thumb {
+  width: 60px;
   height: 60px;
-  border-radius: 6px;
   object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.no-img {
+  color: #999;
+  font-style: italic;
 }
 
-button, a {
-  text-decoration: none;
+/* nút thao tác */
+.btn-edit,
+.btn-del {
   border: none;
-  outline: none;
-}
-
-button {
+  padding: 6px 12px;
+  border-radius: var(--radius);
   cursor: pointer;
-}
-
-td button {
-  background: var(--gradient-4);
-  color: white;
-  padding: 6px 12px;
-  border-radius: var(--radius);
-  font-weight: 500;
-  transition: 0.3s;
-  margin-right: 5px;
-}
-
-td button:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-
-td a {
-  background: var(--gradient-nuilua);
-  color: white;
-  padding: 6px 12px;
-  border-radius: var(--radius);
-  font-weight: 500;
+  color: #fff;
+  font-size: 13px;
   transition: 0.3s;
 }
 
-td a:hover {
+.btn-edit {
+  background: var(--color-btn-action-bg);
+}
+.btn-edit:hover {
+  opacity: 0.85;
   transform: scale(1.05);
-  opacity: 0.9;
 }
 
-/* popup form */
+.btn-del {
+  background: var(--color-link-action-bg);
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-del:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+/* popup thêm/sửa */
 .popup {
-  display: none;
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
   justify-content: center;
   align-items: center;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  animation: fadeIn 0.4s ease;
+}
+
+.popup.active {
+  display: flex;
 }
 
 .form {
-  background: var(--color-trang);
+  background: var(--gradient-7);
   padding: 25px 30px;
   border-radius: var(--radius);
   width: 400px;
@@ -147,64 +150,107 @@ td a:hover {
 }
 
 @keyframes popupIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .form h3 {
   text-align: center;
-  color: var(--color-nuoc3);
+  color: var(--color-den);
   margin-bottom: 15px;
   font-size: 20px;
 }
 
+.form label {
+  font-weight: 500;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  color: var(--color-den);
+}
+
 .form input[type="text"],
+.form input[type="file"],
 .form textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border-radius: var(--radius);
+  padding: 8px 10px;
   border: 1px solid #ccc;
+  border-radius: var(--radius);
+  outline: none;
   font-size: 14px;
+  transition: 0.2s;
+  background: #fff;
 }
 
-.form input:focus, 
+.form input:focus,
 .form textarea:focus {
   border-color: var(--color-nuoc2);
-  outline: none;
-  box-shadow: 0 0 5px var(--color-nuoc1);
+  box-shadow: 0 0 5px rgba(0, 147, 233, 0.3);
 }
 
-.form button {
-  display: inline-block;
-  margin-top: 5px;
-  padding: 8px 15px;
-  border-radius: var(--radius);
-  font-weight: 600;
+.form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form small {
+  color: #666;
+  font-size: 12px;
+}
+
+.coords {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.coords input {
+  flex: 1;
+}
+
+.coords button {
+  background: var(--gradient-5);
   border: none;
+  padding: 8px 10px;
+  border-radius: var(--radius);
   cursor: pointer;
   color: #fff;
+  font-size: 14px;
   transition: 0.3s;
 }
-
-.form button[type="button"]:not(:last-child) {
-  background: var(--gradient-2);
-}
-
-.form button[type="submit"] {
-  background: var(--gradient-4);
-}
-
-.form button:last-child {
-  background: var(--gradient-nuilua);
-}
-
-.form button:hover {
+.coords button:hover {
   opacity: 0.9;
+}
+
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-save {
+  background: var(--gradient-2);
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.btn-save:hover {
   transform: scale(1.05);
 }
 
-/* tiện ích hiển thị popup */
-.popup.active {
-  display: flex;
+.btn-cancel {
+  background: #ccc;
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  color: #333;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-cancel:hover {
+  background: #bbb;
 }
