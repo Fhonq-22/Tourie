@@ -224,3 +224,65 @@ h2 {
   color: var(--color-do1);
   transform: scale(1.05);
 }
+
+
+/* label + input cùng hàng */
+.form label.inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.form label.inline span,
+.form label.inline small {
+  flex: 0 0 130px; /* độ rộng cột label */
+  color: var(--color-den);
+  font-weight: 500;
+}
+
+.form label.inline input,
+.form label.inline textarea {
+  flex: 1;
+  margin-top: 0;
+}
+
+.form label.inline textarea {
+  min-height: 50px;
+  resize: vertical;
+}
+
+/* hàng link bản đồ + nút lấy tọa độ */
+.link-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.link-row input {
+  flex: 1;
+}
+
+.link-row button {
+  background: var(--gradient-5);
+  border: none;
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+.link-row button:hover {
+  transform: scale(1.05);
+}
+
+/* hàng chứa tọa độ */
+.coords {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+.coords input {
+  flex: 1;
+}

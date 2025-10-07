@@ -55,27 +55,39 @@
             <span type="button" onclick="dongPopupThem()" class="btn-cancel">✖</span>
             <h3>Thêm địa điểm</h3>
 
-            <label>Tên địa điểm</label>
-            <input type="text" name="TenDD" placeholder="Tên địa điểm" required>
+            <label class="inline">
+              <span>Tên địa điểm:</span>
+              <input type="text" name="TenDD" placeholder="Tên địa điểm" required>
+            </label>
 
-            <label>Địa chỉ</label>
-            <input type="text" name="DiaChi" placeholder="Địa chỉ">
+            <label class="inline">
+              <span>Địa chỉ:</span>
+              <input type="text" name="DiaChi" placeholder="Địa chỉ">
+            </label>
 
-            <label>Mô tả</label>
-            <textarea name="MoTa" placeholder="Mô tả"></textarea>
+            <label class="inline">
+              <span>Mô tả:</span>
+              <textarea name="MoTa" placeholder="Mô tả"></textarea>
+            </label>
 
-            <label>Ảnh đại diện</label>
-            <input type="file" name="AnhDaiDien" accept="image/*">
-            <small>Hoặc dán link ảnh:</small>
-            <input type="text" name="AnhDaiDienLink" placeholder="https://...">
+            <label class="inline">
+              <span>Ảnh đại diện:</span>
+              <input type="file" name="AnhDaiDien" accept="image/*">
+            </label>
+            <label class="inline">
+              <small>Hoặc dán link ảnh:</small>
+              <input type="text" name="AnhDaiDienLink" placeholder="https://...">
+            </label>
 
             <label>Vị trí / Link bản đồ</label>
-            <input type="text" name="LinkMap" id="linkmap" placeholder="Dán link bản đồ hoặc nhập lat,lng">
+            <div class="link-row">
+              <input type="text" name="LinkMap" id="linkmap" placeholder="Dán link bản đồ hoặc nhập lat,lng">
+              <button type="button" onclick="phanTichLink()">↻ Lấy tọa độ</button>
+            </div>
 
             <div class="coords">
-                <input type="text" name="ViTriLat" id="vitrilat" placeholder="Vĩ độ (lat)">
-                <input type="text" name="ViTriLng" id="vitrilng" placeholder="Kinh độ (lng)">
-                <button type="button" onclick="phanTichLink()">↻ Lấy tọa độ</button>
+              <input type="text" name="ViTriLat" id="vitrilat" placeholder="Vĩ độ (lat)">
+              <input type="text" name="ViTriLng" id="vitrilng" placeholder="Kinh độ (lng)">
             </div>
 
             <div class="btn-group">
