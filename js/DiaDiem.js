@@ -26,41 +26,34 @@ function dongPopupSua() {
     document.getElementById('popupSua').style.display = 'none';
 }
 
-function phanTichLink() {
-  const link = document.getElementById('linkmap').value.trim();
+function phanTichLink(btn) {
+  const form = btn.closest("form");
+  const linkInput = form.querySelector("input[name='LinkMap']");
+  const latInput = form.querySelector("input[name='ViTriLat']");
+  const lngInput = form.querySelector("input[name='ViTriLng']");
+  const link = linkInput?.value.trim();
+
   if (!link) {
-    alert("Vui lòng nhập link bản đồ trước!");
+    alert("vui lòng nhập link bản đồ trước!");
     return;
   }
 
   let lat = "", lng = "";
 
-  // 1️⃣ google maps dạng ?q=LAT,LNG
   const match1 = link.match(/[?&]q=(-?\d+(\.\d+)?),(-?\d+(\.\d+)?)/);
-  if (match1) {
-    lat = match1[1];
-    lng = match1[3];
-  }
+  if (match1) [lat, lng] = [match1[1], match1[3]];
 
-  // 2️⃣ openstreetmap dạng #map=zoom/LAT/LNG
   const match2 = link.match(/#map=\d+\/(-?\d+(\.\d+)?)\/(-?\d+(\.\d+)?)/);
-  if (!lat && match2) {
-    lat = match2[1];
-    lng = match2[3];
-  }
+  if (!lat && match2) [lat, lng] = [match2[1], match2[3]];
 
-  // 3️⃣ nhập trực tiếp lat,lng
   const match3 = link.match(/(-?\d+(\.\d+)?)[,\s]+(-?\d+(\.\d+)?)/);
-  if (!lat && match3) {
-    lat = match3[1];
-    lng = match3[3];
-  }
+  if (!lat && match3) [lat, lng] = [match3[1], match3[3]];
 
   if (lat && lng) {
-    document.getElementById('vitrilat').value = lat;
-    document.getElementById('vitrilng').value = lng;
-    alert("Đã tách tọa độ thành công!");
+    latInput.value = lat;
+    lngInput.value = lng;
+    alert("đã tách tọa độ thành công!");
   } else {
-    alert("Không thể phân tích được tọa độ, hãy kiểm tra lại link.");
+    alert("không thể phân tích được tọa độ, hãy kiểm tra lại link.");
   }
 }

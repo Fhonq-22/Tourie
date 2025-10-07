@@ -81,13 +81,12 @@
 
             <label>Vị trí / Link bản đồ</label>
             <div class="link-row">
-              <input type="text" name="LinkMap" id="linkmap" placeholder="Dán link bản đồ hoặc nhập lat,lng">
-              <button type="button" onclick="phanTichLink()">↻ Lấy tọa độ</button>
+              <input type="text" name="LinkMap" placeholder="Dán link bản đồ hoặc nhập lat,lng">
+              <button type="button" onclick="phanTichLink(this)">↻ Lấy tọa độ</button>
             </div>
-
             <div class="coords">
-              <input type="text" name="ViTriLat" id="vitrilat" placeholder="Vĩ độ (lat)">
-              <input type="text" name="ViTriLng" id="vitrilng" placeholder="Kinh độ (lng)">
+              <input type="text" name="ViTriLat" placeholder="Vĩ độ (lat)">
+              <input type="text" name="ViTriLng" placeholder="Kinh độ (lng)">
             </div>
 
             <div class="btn-group">
@@ -97,37 +96,54 @@
     </div>
 
     <div id="popupSua" class="popup">
-        <form method="POST" action="" enctype="multipart/form-data" id="formSua" class="form">
-            <span type="button" onclick="dongPopupSua()" class="btn-cancel">✖</span>
-            <h3>Sửa địa điểm</h3>
-            <input type="hidden" name="MaDD" id="edit_MaDD">
-            <label>Tên địa điểm</label>
-            <input type="text" name="TenDD" id="edit_TenDD" required>
+      <form method="POST" action="" enctype="multipart/form-data" id="formSua" class="form">
+        <span type="button" onclick="dongPopupSua()" class="btn-cancel">✖</span>
+        <h3>Sửa địa điểm</h3>
 
-            <label>Địa chỉ</label>
-            <input type="text" name="DiaChi" id="edit_DiaChi">
+        <input type="hidden" name="MaDD" id="edit_MaDD">
 
-            <label>Mô tả</label>
-            <textarea name="MoTa" id="edit_MoTa"></textarea>
+        <label class="inline">
+          <span>Tên địa điểm:</span>
+          <input type="text" name="TenDD" id="edit_TenDD" required>
+        </label>
 
-            <label>Ảnh mới (nếu muốn thay)</label>
-            <input type="file" name="AnhDaiDien" accept="image/*">
-            <input type="text" name="AnhLink" id="edit_AnhLink" placeholder="Hoặc link ảnh">
+        <label class="inline">
+          <span>Địa chỉ:</span>
+          <input type="text" name="DiaChi" id="edit_DiaChi">
+        </label>
 
-            <label>Vĩ độ / Kinh độ</label>
-            <div class="coords">
-                <input type="text" name="ViTriLat" id="edit_ViTriLat" placeholder="Vĩ độ">
-                <input type="text" name="ViTriLng" id="edit_ViTriLng" placeholder="Kinh độ">
-            </div>
+        <label class="inline">
+          <span>Mô tả:</span>
+          <textarea name="MoTa" id="edit_MoTa"></textarea>
+        </label>
 
-            <label>Link map</label>
-            <input type="text" name="LinkMap" id="edit_LinkMap">
+        <label class="inline">
+          <span>Ảnh mới:</span>
+          <input type="file" name="AnhDaiDien" accept="image/*">
+        </label>
 
-            <div class="btn-group">
-                <button type="submit" name="update" class="btn-save">💾 Lưu</button>
-            </div>
-        </form>
+        <label class="inline">
+          <small>Hoặc link ảnh:</small>
+          <input type="text" name="AnhLink" id="edit_AnhLink" placeholder="https://...">
+        </label>
+
+        <label>Vị trí / Tọa độ</label>
+        <div class="coords">
+          <input type="text" name="ViTriLat" id="edit_ViTriLat" placeholder="Vĩ độ (lat)">
+          <input type="text" name="ViTriLng" id="edit_ViTriLng" placeholder="Kinh độ (lng)">
+        </div>
+
+        <div class="link-row">
+          <input type="text" name="LinkMap" id="edit_LinkMap" placeholder="Link bản đồ">
+          <button type="button" onclick="phanTichLink(this)">↻ Lấy tọa độ</button>
+        </div>
+
+        <div class="btn-group">
+          <button type="submit" name="update" class="btn-save">💾 Lưu</button>
+        </div>
+      </form>
     </div>
+
 
   <script src="/Tourie/js/DiaDiem.js"></script>
 </body>
