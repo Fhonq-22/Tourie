@@ -12,41 +12,43 @@
 
     <button class="btn-add" onclick="moPopupThem()">+ Thêm địa điểm</button>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Tên địa điểm</th>
-          <th>Địa chỉ</th>
-          <th>Ảnh</th>
-          <th>Vĩ độ</th>
-          <th>Kinh độ</th>
-          <th>Thao tác</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach($diadiems as $row): ?>
-        <tr>
-          <td><?= $row['MaDD'] ?></td>
-          <td><?= htmlspecialchars($row['TenDD']) ?></td>
-          <td><?= htmlspecialchars($row['DiaChi']) ?></td>
-          <td>
-            <?php if ($row['AnhDaiDien']): ?>
-              <img src="<?= $row['AnhDaiDien'] ?>" alt="Ảnh địa điểm" class="thumb">
-            <?php else: ?>
-              <span class="no-img">Không có</span>
-            <?php endif; ?>
-          </td>
-          <td><?= $row['ViTriLat'] ?></td>
-          <td><?= $row['ViTriLng'] ?></td>
-          <td>
-            <button class="btn-edit" data-row='<?= htmlspecialchars(json_encode($row), ENT_QUOTES) ?>'>Sửa</button>
-            <a class="btn-del" href="?delete=<?= $row['MaDD'] ?>" onclick="return confirm('Xóa địa điểm này?')">Xóa</a>
-          </td>
-        </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+    <div class="table-wrapper">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tên địa điểm</th>
+            <th>Địa chỉ</th>
+            <th>Ảnh</th>
+            <th>Vĩ độ</th>
+            <th>Kinh độ</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach($diadiems as $row): ?>
+          <tr>
+            <td><?= $row['MaDD'] ?></td>
+            <td><?= htmlspecialchars($row['TenDD']) ?></td>
+            <td><?= htmlspecialchars($row['DiaChi']) ?></td>
+            <td>
+              <?php if ($row['AnhDaiDien']): ?>
+                <img src="<?= $row['AnhDaiDien'] ?>" alt="Ảnh địa điểm" class="thumb">
+              <?php else: ?>
+                <span class="no-img">Không có</span>
+              <?php endif; ?>
+            </td>
+            <td><?= $row['ViTriLat'] ?></td>
+            <td><?= $row['ViTriLng'] ?></td>
+            <td>
+              <button class="btn-edit" data-row='<?= htmlspecialchars(json_encode($row), ENT_QUOTES) ?>'>Sửa</button>
+              <a class="btn-del" href="?delete=<?= $row['MaDD'] ?>" onclick="return confirm('Xóa địa điểm này?')">Xóa</a>
+            </td>
+          </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- popup thêm -->
