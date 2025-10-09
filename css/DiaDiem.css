@@ -58,10 +58,16 @@ h2 {
 .btn-edit:hover, .btn-del:hover, .btn-save:hover { transform: scale(1.05); }
 
 /* bảng dữ liệu */
+.table-wrapper {
+  margin-top: 20px;
+  max-height: 350px;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
   background: white;
   border-radius: 10px;
   overflow: hidden;
