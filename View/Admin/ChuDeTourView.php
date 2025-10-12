@@ -38,7 +38,7 @@
                 Sửa
               </button>
               <a class="btn-del"
-                 href="?controller=chudetour&action=delete&id=<?= $cd->MaChuDe ?>"
+                 href="?delete=<?= $cd->MaChuDe ?>"
                  onclick="return confirm('Xóa chủ đề này?')">Xóa</a>
             </td>
           </tr>

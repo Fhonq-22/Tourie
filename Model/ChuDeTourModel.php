@@ -50,5 +50,9 @@ class ChuDeTourModel extends BaseModel {
         }
         parent::update($id, $data);
     }
+
+    public function delete($id): void {
+        parent::delete($id);
+    }
 }
 ?>
