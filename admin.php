@@ -23,7 +23,15 @@
             $controller->edit();
             $controller->delete();
             $controller->index();
-            break; 
+            break;
+        case 'chu-de-tour':
+            require_once 'Controller/ChuDeTourController.php';
+            $controller = new ChuDeTourController();
+            $controller->add();
+            $controller->edit();
+            $controller->delete();
+            $controller->index();
+            break;
         case 'tour':
             include __DIR__ . '/View/Admin/Tour.php';
             break;
