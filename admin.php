@@ -33,7 +33,12 @@
             $controller->index();
             break;
         case 'tour':
-            include __DIR__ . '/View/Admin/Tour.php';
+            require_once 'Controller/TourController.php';
+            $controller = new TourController();
+            $controller->add();
+            $controller->edit();
+            $controller->delete();
+            $controller->index();
             break;
 
         case 'dat-tour':
