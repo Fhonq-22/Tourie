@@ -68,6 +68,56 @@
         <textarea name="MoTa" placeholder="Mô tả ngắn"></textarea>
       </label>
 
+      <label class="inline">
+        <span>Loại tour:</span>
+        <select name="" id="">
+            <option value="" selected>--Chọn--</option>
+            <option value="Cá nhân">Cá nhân</option>
+            <option value="Gia đình">Gia đình</option>
+            <option value="Theo đoàn">Theo đoàn</option>
+        </select>
+      </label>
+
+      <label class="inline">
+        <span>Chủ đề:</span>
+        <select name="" id="">
+            <option value="" selected>--Chọn--</option>
+        </select>
+      </label>
+
+      <label class="inline">
+        <span>Xuất phát từ:</span>
+        <select name="" id="">
+            <option value="" selected>--Chọn--</option>
+        </select>
+        <span>đến:</span>
+        <select name="" id="">
+            <option value="" selected>--Chọn--</option>
+        </select>
+      </label>
+
+      <label class="inline">
+        <span>Khởi hành ngày</span>
+        <input type="date">
+        <span>đến</span>
+        <input type="date">
+      </label>
+
+      <label class="inline">
+        <span>Giá:</span>
+        <input type="number">
+      </label>
+
+      <label class="inline">
+        <span>Số chỗ:</span>
+        <input type="number">
+      </label>
+
+      <label class="inline">
+        <span>Ảnh đại diện:</span>
+        <input type="file">
+      </label>
+
       <div class="btn-group">
         <button type="submit" name="add" class="btn-save">💾 Lưu</button>
       </div>
