@@ -1,0 +1,205 @@
+@import url('/Tourie/css/root.css');
+
+body {
+  font-family: var(--font);
+  background: var(--gradient-3);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  color: var(--color-den);
+}
+
+/* khung chính */
+.admin-container {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 950px;
+}
+
+h2 {
+  text-align: center;
+  color: var(--color-nuoc4);
+  font-size: 26px;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* nút thêm / lưu / thao tác */
+.btn-add,
+.btn-save,
+.btn-edit,
+.btn-del {
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: 0.2s;
+  color: white;
+}
+
+.btn-add {
+  background: var(--gradient-3);
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.btn-add:hover { transform: scale(1.05); }
+
+.btn-save { background: var(--gradient-3); padding: 8px 14px; margin-top: 8px; }
+.btn-edit { background: var(--gradient-3); padding: 6px 10px; font-size: 13px; font-weight: bold; }
+.btn-del { background: var(--gradient-lehoi); padding: 6px 10px; font-size: 13px; font-weight: bold; }
+.btn-edit:hover, .btn-del:hover, .btn-save:hover { transform: scale(1.05); }
+
+/* bảng dữ liệu */
+.table-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  background: var(--gradient-3);
+  color: var(--color-trang);
+  padding: 12px 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  position: sticky;
+  top: 0;
+}
+
+.table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.table tr:hover { background: rgba(240, 240, 240, 0.6); }
+
+/* popup */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup .form {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: var(--shadow);
+  animation: zoomIn 0.25s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.form h3 {
+  text-align: center;
+  color: var(--color-nuoc3);
+  margin-bottom: 12px;
+}
+
+/* input + label */
+.form label {
+  font-weight: 500;
+  display: block;
+  margin-top: 8px;
+  color: var(--color-den);
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* inline label */
+.form label.inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form label.inline span {
+  flex: 0 0 auto;
+  color: var(--color-den);
+  font-weight: 500;
+}
+
+.form label.inline input,
+.form label.inline textarea {
+  flex: 1;
+}
+
+.btn-cancel {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--color-xam2);
+  transition: 0.2s;
+}
+.btn-cancel:hover { color: var(--color-do1); transform: scale(1.05); }
+
+/* responsive */
+@media (max-width: 768px) {
+  body { padding: 20px; }
+  .admin-container { padding: 20px; }
+  h2 { font-size: 22px; }
+  .btn-add { width: 100%; }
+
+  .table th, .table td { font-size: 13px; padding: 8px; }
+
+  .form label.inline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form label.inline span {
+    flex: none;
+  }
+
+  .popup .form {
+    padding: 20px;
+    width: 95%;
+  }
+}

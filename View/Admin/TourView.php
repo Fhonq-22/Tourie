@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quản lý tour</title>
-  <link rel="stylesheet" href="/Tourie/css/ChuDeTour.css">
+  <link rel="stylesheet" href="/Tourie/css/Tour.css">
 </head>
 <body>
   <div class="admin-container">
@@ -76,9 +76,6 @@
             <option value="Gia đình">Gia đình</option>
             <option value="Theo đoàn">Theo đoàn</option>
         </select>
-      </label>
-
-      <label class="inline">
         <span>Chủ đề:</span>
         <select name="" id="">
             <option value="" selected>--Chọn--</option>
@@ -97,18 +94,15 @@
       </label>
 
       <label class="inline">
-        <span>Khởi hành ngày</span>
+        <span>Khởi hành ngày:</span>
         <input type="date">
-        <span>đến</span>
+        <span>đến:</span>
         <input type="date">
       </label>
 
       <label class="inline">
         <span>Giá:</span>
         <input type="number">
-      </label>
-
-      <label class="inline">
         <span>Số chỗ:</span>
         <input type="number">
       </label>
