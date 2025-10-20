@@ -70,46 +70,46 @@
 
       <label class="inline">
         <span>Loại tour:</span>
-        <select name="" id="">
+        <select name="LoaiTour" id="">
             <option value="" selected>--Chọn--</option>
             <option value="Cá nhân">Cá nhân</option>
             <option value="Gia đình">Gia đình</option>
             <option value="Theo đoàn">Theo đoàn</option>
         </select>
         <span>Chủ đề:</span>
-        <select name="" id="">
+        <select name="ChuDe" id="">
             <option value="" selected>--Chọn--</option>
         </select>
       </label>
 
       <label class="inline">
         <span>Xuất phát từ:</span>
-        <select name="" id="">
+        <select name="DDDi" id="">
             <option value="" selected>--Chọn--</option>
         </select>
         <span>đến:</span>
-        <select name="" id="">
+        <select name="DDDen" id="">
             <option value="" selected>--Chọn--</option>
         </select>
       </label>
 
       <label class="inline">
         <span>Khởi hành ngày:</span>
-        <input type="date">
+        <input type="date" name="NgayKhoiHanh">
         <span>đến:</span>
-        <input type="date">
+        <input type="date" name="NgayKetThuc">
       </label>
 
       <label class="inline">
         <span>Giá:</span>
-        <input type="number">
+        <input type="number" name="Gia">
         <span>Số chỗ:</span>
-        <input type="number">
+        <input type="number" name="SoCho">
       </label>
 
       <label class="inline">
         <span>Ảnh đại diện:</span>
-        <input type="file">
+        <input type="file" name="AnhDaiDien">
       </label>
 
       <div class="btn-group">
