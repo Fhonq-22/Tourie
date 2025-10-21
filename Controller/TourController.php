@@ -1,14 +1,22 @@
 <?php
 require_once __DIR__ . '/../Model/TourModel.php';
+require_once __DIR__ . '/../Model/ChuDeTourModel.php';
+require_once __DIR__ . '/../Model/DiaDiemModel.php';
 
 class TourController {
     private TourModel $model;
+    private ChuDeTourModel $chuDeModel;
+    private DiaDiemModel $diaDiemModel;
 
     public function __construct() {
         $this->model = new TourModel();
+        $this->chuDeModel = new ChuDeTourModel();
+        $this->diaDiemModel = new DiaDiemModel();
     }
 
     public function index() {
+        $chuDes = $this->chuDeModel->getAll();
+        $diaDiems = $this->diaDiemModel->getAll();
         $tours = $this->model->getAll();
         require __DIR__ . '/../View/Admin/TourView.php';
     }

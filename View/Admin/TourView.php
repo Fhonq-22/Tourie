@@ -77,19 +77,30 @@
             <option value="Theo đoàn">Theo đoàn</option>
         </select>
         <span>Chủ đề:</span>
-        <select name="ChuDe" id="">
-            <option value="" selected>--Chọn--</option>
+        <select name="MaChuDe">
+          <option value="" selected>--Chọn--</option>
+          <?php foreach ($chuDes as $cd): ?>
+            <option value="<?= $cd->MaChuDe ?>"><?= htmlspecialchars($cd->TenChuDe) ?></option>
+          <?php endforeach; ?>
         </select>
+
       </label>
 
       <label class="inline">
         <span>Xuất phát từ:</span>
-        <select name="DDDi" id="">
-            <option value="" selected>--Chọn--</option>
+        <select name="MaDDDi">
+          <option value="" selected>--Chọn--</option>
+          <?php foreach ($diaDiems as $dd): ?>
+            <option value="<?= $dd->MaDD ?>"><?= htmlspecialchars($dd->TenDD) ?></option>
+          <?php endforeach; ?>
         </select>
+
         <span>đến:</span>
-        <select name="DDDen" id="">
-            <option value="" selected>--Chọn--</option>
+        <select name="MaDDDen">
+          <option value="" selected>--Chọn--</option>
+          <?php foreach ($diaDiems as $dd): ?>
+            <option value="<?= $dd->MaDD ?>"><?= htmlspecialchars($dd->TenDD) ?></option>
+          <?php endforeach; ?>
         </select>
       </label>
 
